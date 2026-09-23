@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achei Barato - Grupo Oficial de Ofertas</title>
+    <style>
+        :root {
+            --primary-gold: #FFCC00;
+            --secondary-gold: #FFA500;
+            --red-alert: #E50914;
+            --green-whatsapp: #25D366;
+            --blue-telegram: #0088cc;
+            --bg-dark: #0b0d12;
+            --card-bg: #151922;
+            --text-light: #ffffff;
+            --text-dim: #a0a6b5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(255, 204, 0, 0.15);
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert-banner {
+            background: linear-gradient(90deg, #E50914, #FF5252);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4);
+            animation: pulseBanner 2s infinite;
+        }
+
+        @keyframes pulseBanner {
+            0% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 0.9; transform: scale(1); }
+        }
+
+        .profile-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 16px;
+        }
+
+        .profile-img-fallback {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .badge-official {
+            position: absolute;
+            bottom: -8px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--primary-gold);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 900;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            white-space: nowrap;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, #FFF, var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .description {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .timer-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .timer-title {
+            font-size: 0.75rem;
+            color: #FF5252;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .time-box {
+            background: #0d0e12;
+            padding: 8px;
+            border-radius: 8px;
+            min-width: 60px;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+        }
+
+        .time-box label {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .capacity-bar-container {
+            margin-bottom: 24px;
+        }
+
+        .capacity-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+            color: var(--text-dim);
+        }
+
+        .capacity-bar {
+            width: 100%;
+            height: 10px;
+            background: #202530;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .capacity-fill {
+            height: 100%;
+            width: 94%;
+            background: linear-gradient(90deg, #25D366, var(--primary-gold), #FF5252);
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(180deg, #25D366, #128C7E);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-telegram {
+            background: linear-gradient(180deg, #0088cc, #005580);
+            box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
+        }
+
+        .footer-note {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="alert-banner">
+            GRUPO OFICIAL DE OFERTAS & CUPONS
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-img-fallback">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FFCC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span style="color:#FFCC00; font-weight:900; font-size:0.7rem; margin-top:4px;">ACHEI BARATO</span>
+            </div>
+            <div class="badge-official">OFICIAL</div>
+        </div>
+
+        <h1>ACHEI BARATO</h1>
+        <div class="subtitle">DESCONTOS IMPERDIVEIS!</div>
+
+        <p class="description">
+            Receba em primeira mao promocoes exclusivas, erros de preco e cupons secretos das maiores lojas do Brasil!
+        </p>
+
+        <div class="timer-card">
+            <div class="timer-title">O LINK DE ACESSO EXPIRA EM:</div>
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>Horas</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">14</span>
+                    <label>Minutos</label>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">59</span>
+                    <label>Segundos</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="capacity-bar-container">
+            <div class="capacity-text">
+                <span>Capacidade do Grupo</span>
+                <span style="color: var(--primary-gold); font-weight: bold;">94% Ocupado</span>
+            </div>
+            <div class="capacity-bar">
+                <div class="capacity-fill"></div>
+            </div>
+        </div>
+
+        <a href="https://chat.whatsapp.com/Ju5Qk3FtdwcBVqqUU1a8oZ?s=cl&p=i&mlu=4&ilr=4" class="btn btn-whatsapp" target="_blank">
+            ENTRAR NO WHATSAPP
+        </a>
+
+        <a href="https://t.me/AcheiBaratoo" class="btn btn-telegram" target="_blank">
+            ENTRAR NO TELEGRAM
+        </a>
+
+        <div class="footer-note">
+            *Entrada 100% Gratuita. Vagas Limitadas.
+        </div>
+    </div>
+
+    <script>
+        let totalSeconds = 15 * 60;
+        function updateTimer() {
+            let m = Math.floor(totalSeconds / 60);
+            let s = totalSeconds % 60;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+            if (totalSeconds > 0) totalSeconds--;
+        }
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
